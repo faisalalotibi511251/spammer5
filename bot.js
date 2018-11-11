@@ -1,6 +1,6 @@
-﻿const Discord = require('discord.js');
+const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "1";
+var prefix = "4";
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);  
@@ -29,6 +29,15 @@ if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('
    message.delete()
   }
  });
+
+
+client.on('message', message => {
+if(message.content.startsWith('1s')) {
+if(message.author.id !== "510152868293246988") return;
+var args = message.content.split(' ').slice(1).join(' ');
+message.channel.send(args);
+}
+});
 
  
 client.login(process.env.BOT_TOKEN);
